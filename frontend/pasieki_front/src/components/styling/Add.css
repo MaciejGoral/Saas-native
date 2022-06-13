@@ -29,6 +29,10 @@ input {
    width: 100%;
  }
 
+ input:focus {
+    outline-color: #d3d3d3;
+  }
+
 label {
    color: #3d3d3d;
    display: block;
