@@ -1,4 +1,4 @@
-##Uruchomienie frontendu
+#Uruchomienie frontendu
 ```
 cd frontend/pasieki_front
 ```
@@ -8,7 +8,7 @@ npm install
 ```
 npm start
 ```
-##Uruchomienie backendu
+#Uruchomienie backendu
 ```
 cd backend/pasieki_back
 ```
