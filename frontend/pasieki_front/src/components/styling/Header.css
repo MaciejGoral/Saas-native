@@ -5,6 +5,7 @@
     color: white;
     font-size: 30px;
     margin-bottom: 50px;
+    min-width: 520px;
   }
 
 .text-link {

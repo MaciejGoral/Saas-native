@@ -51,10 +51,6 @@ function List() {
     console.log(listOfApiaries)
   }
 
-  useEffect(() => {
-    console.log(listOfApiaries)
-  }, [listOfApiaries])
-
   return (
     <div className="List">
       <div className='search'>
@@ -84,7 +80,6 @@ function List() {
         />
         <select 
           value={sort}
-          defaultValue={sort} 
           onChange={(e) => {
               sortTable(e.target.value);
           }}>
@@ -94,7 +89,7 @@ function List() {
         </select>
       </div>
       {
-        listOfApiaries.length!==0 &&
+        listOfApiaries.length!==0 &&      //ukrywa tabelę jeśli nie ma pasiek
         <table className="styled-table">
           <thead>
               <tr>

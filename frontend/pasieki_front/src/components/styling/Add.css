@@ -1,6 +1,3 @@
-.Add{
-  padding: 20px;
-}
 
 h1 {
    border-bottom: 1px solid white;
@@ -20,7 +17,7 @@ form {
    flex-direction: column;
    justify-content: space-around;
    margin: 0 auto;
-   max-width: 500px;
+   width: 500px;
    padding: 30px 50px;
  }
 

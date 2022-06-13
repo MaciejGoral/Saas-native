@@ -37,12 +37,12 @@ function Add() {
               }));
           }}
         />
-        <label>Data dodania</label>
+        <label>Data dodania</label> 
         <input 
           required
           type="date" 
           name="date" 
-          value={state.date}
+          value={state.date}        //w prawdziwej aplikacji data byłaby ustawiana na dzisiejszą datę, ale w ramach testów jest wpisywana przez uzytkownika
           onChange= {(e) => {
             setState(prevState => ({
               ...prevState,
@@ -58,13 +58,17 @@ function Add() {
           min="1"
           value={state.number}
           onChange= {(e) => {
-            e.target.value.length<=5 && setState(prevState => ({
+            e.target.value.length<=5 && setState(prevState => ({ //ograniczenie długości numeru, maxLength nie działa dla pola typu number
               ...prevState,
               number: e.target.value
             }));
           }}
           />
-        <input type="submit" className="submitButton" value="Dodaj"/>
+        <input 
+          type="submit" 
+          className="submitButton" 
+          value="Dodaj"
+        />
         {success && <div className="successMessage">{message}</div>}
         {!success && message!=='' && <div className="errorMessage">{message}</div>}
       </form>

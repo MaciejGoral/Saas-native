@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var ListaPasiek=[
+var listOfApiaries=[  //przykładowe dane, numery nie są prawidłowe
   {
     name:"BPasieka 1",
     date:"2019-01-03",
@@ -33,14 +33,14 @@ function CalculateChecksum(number)
   return sum[1]+sum[6]+sum[sum.length-1];
 }
 
-function getFirstFreeIdFromDate(date)
+function getFirstFreeIdFromDate(date) //zwraca pierwsze wolne id w danym dniu lub 0 jesli nie ma
 {
   var ids=[]
-  for(var i=0;i<ListaPasiek.length;i++)
+  for(var i=0;i<listOfApiaries.length;i++)
   {
-    if(ListaPasiek[i].date==date)
+    if(listOfApiaries[i].date==date)
     {
-      ids.push(parseInt(ListaPasiek[i].number.substring(8,13)));
+      ids.push(parseInt(listOfApiaries[i].number.substring(8,13)));
     }
   }
   free=1;
@@ -75,28 +75,28 @@ router.post('/', function(req, res, next) {
     }
     else
     {
-      ListaPasiek.push({name:pasieka.name,date:pasieka.date,number:generateNumber(Id,pasieka.date)});
+      listOfApiaries.push({name:pasieka.name,date:pasieka.date,number:generateNumber(Id,pasieka.date)});
       res.send({success:true,message:"Pasieka dodana"});
     }
   }
-  else if(ListaPasiek.filter(x => parseInt(x.number.substring(8,13)) === parseInt(Id)).length!=0)
+  else if(listOfApiaries.filter(x => parseInt(x.number.substring(8,13)) === parseInt(Id)).length!=0) //zakladamy ze numery w danym dniu nie moga sie powtarzac
   {
     res.send({success:false,message:"Pasieka o takim numerze juz istnieje. Wybierz inny numer."});
   }
   else
   {
     res.send({success:true,message:"Pasieka dodana"});
-    ListaPasiek.push({name:pasieka.name,date:pasieka.date,number:generateNumber(Id,pasieka.date)});
+    listOfApiaries.push({name:pasieka.name,date:pasieka.date,number:generateNumber(Id,pasieka.date)});
   } 
 });
 
 router.get('/list', function(req, res, next) {
-  res.send(ListaPasiek);
+  res.send(listOfApiaries);
 });
 
 function getApiariesInDateRange(from,to)
 {
-  var filtered=ListaPasiek;
+  var filtered=listOfApiaries;
   if(from!=="")
   {
     filtered=filtered.filter(x => Date.parse(x.date)>=Date.parse(from));
@@ -109,7 +109,6 @@ function getApiariesInDateRange(from,to)
 }
 
 router.post('/list', function(req, res, next) {
-  console.log(req.body);
   res.send(getApiariesInDateRange(req.body.dateRange.from,req.body.dateRange.to))
 });
 
