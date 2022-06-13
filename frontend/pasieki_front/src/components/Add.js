@@ -7,6 +7,8 @@ function Add() {
     const [message, setMessage] = useState('');
   
   const submit = e => {
+    setSuccess(false);
+    setMessage('');
     e.preventDefault()
     fetch('http://localhost:3000', {
       method: 'POST',
@@ -19,7 +21,7 @@ function Add() {
         setMessage(res.message)
       })
   }
-  
+
   return (
     <div className="Add">
       <form onSubmit={submit}>
@@ -41,6 +43,8 @@ function Add() {
         <input 
           required
           type="date" 
+          min='1899-01-01' 
+          max='2100-12-12'
           name="date" 
           value={state.date}        //w prawdziwej aplikacji data byłaby ustawiana na dzisiejszą datę, ale w ramach testów jest wpisywana przez uzytkownika
           onChange= {(e) => {

@@ -47,6 +47,10 @@ label {
    margin: 20px 0px;
  }
 
+ .submitButton:hover {
+   background-color: #4f579b;
+ }
+
 .successMessage{
     color: #4F8A10;
     background-color: #DFF2BF;

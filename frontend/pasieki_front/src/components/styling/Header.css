@@ -23,3 +23,9 @@
 .text-link:hover {
     background-color: #4f579b;
 }
+
+.logo{
+    width: 70px;
+    float:left;
+    margin-top: -20px;
+}
