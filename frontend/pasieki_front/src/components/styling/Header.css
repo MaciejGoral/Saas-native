@@ -1,0 +1,18 @@
+.Header {
+    padding: 40px;
+    text-align: center;
+    background: #6976d9;
+    color: white;
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+
+.text-link {
+    color: inherit;
+    text-decoration: inherit;
+    padding: 20px;
+}
+
+.text-link:hover {
+    color: #000000;
+}
