@@ -79,7 +79,7 @@ router.post('/', function(req, res, next) {
       res.send({success:true,message:"Pasieka dodana"});
     }
   }
-  else if(listOfApiaries.filter(x => parseInt(x.number.substring(8,13)) === parseInt(Id)).length!=0) //zakladamy ze numery w danym dniu nie moga sie powtarzac
+  else if(listOfApiaries.filter(x => parseInt(x.number.substring(8,13)) === parseInt(Id) && x.date===pasieka.date).length!=0) //zakladamy ze numery w danym dniu nie moga sie powtarzac
   {
     res.send({success:false,message:"Pasieka o takim numerze juz istnieje. Wybierz inny numer."});
   }
