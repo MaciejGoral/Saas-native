@@ -48,7 +48,6 @@ function List() {
         return 0;
       }))
     }
-    console.log(listOfApiaries)
   }
 
   return (

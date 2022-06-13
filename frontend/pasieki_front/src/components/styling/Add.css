@@ -51,10 +51,59 @@ label {
     color: #4F8A10;
     background-color: #DFF2BF;
     padding: 10px;
+    animation: fadeOut ease 5s;
+    animation-fill-mode: forwards;
 }
 
 .errorMessage{
   color: #D8000C;
   background-color: #FFD2D2;
   padding: 10px;
+  animation: fadeOut ease 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
