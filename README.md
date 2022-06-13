@@ -8,7 +8,7 @@ npm install
 ```
 npm start
 ```
-##Uruchomienie frontendu
+##Uruchomienie backendu
 ```
 cd backend/pasieki_back
 ```
