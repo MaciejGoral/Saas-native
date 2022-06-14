@@ -27,7 +27,10 @@ function List() {
       headers: { 'Content-Type': 'application/json' },
     })
       .then(res =>res.json())
-      .then(data=>{setListOfApiaries(data);setSort("default")})
+      .then(data=>{
+        setListOfApiaries(data);
+        setSort("default")
+      })
   }, [dateRange])
 
   const sortTable = (s) => {

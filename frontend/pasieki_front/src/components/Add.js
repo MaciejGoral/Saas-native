@@ -31,7 +31,7 @@ function Add() {
           maxLength={30}
           name="name"  
           placeholder="Nazwa" 
-          value={state.name.toString()}
+          value={state.name}
           onChange= {(e) => {
             setState(prevState => ({
                 ...prevState,
@@ -45,7 +45,6 @@ function Add() {
           type="date" 
           min='1899-01-01' 
           max='2100-12-12'
-          name="date" 
           value={state.date}        //w prawdziwej aplikacji data byłaby ustawiana na dzisiejszą datę, ale w ramach testów jest wpisywana przez uzytkownika
           onChange= {(e) => {
             setState(prevState => ({
@@ -58,8 +57,8 @@ function Add() {
         <input 
           type="number" 
           placeholder='00000' 
-          name="number" 
           min="1"
+          max="99999"
           value={state.number}
           onChange= {(e) => {
             e.target.value.length<=5 && setState(prevState => ({ //ograniczenie długości numeru, maxLength nie działa dla pola typu number

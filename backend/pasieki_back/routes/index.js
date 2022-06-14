@@ -64,29 +64,29 @@ function generateNumber(id,date)
   
 }
 router.post('/', function(req, res, next) {
-  var pasieka=req.body.state;
-  var Id=pasieka.number;
+  var apiary=req.body.state;
+  var Id=apiary.number;
   if(Id=='')
   {
-    Id=getFirstFreeIdFromDate(pasieka.date);
+    Id=getFirstFreeIdFromDate(apiary.date);
     if(Id==0)
     {
       res.send({success:false,message:'Dzienny limit pasiek wyczerpany. Spróbuj ponownie jutro.'});
     }
     else
     {
-      listOfApiaries.push({name:pasieka.name,date:pasieka.date,number:generateNumber(Id,pasieka.date)});
+      listOfApiaries.push({name:apiary.name,date:apiary.date,number:generateNumber(Id,apiary.date)});
       res.send({success:true,message:"Pasieka dodana"});
     }
   }
-  else if(listOfApiaries.filter(x => parseInt(x.number.substring(8,13)) === parseInt(Id) && x.date===pasieka.date).length!=0) //zakladamy ze numery w danym dniu nie moga sie powtarzac
+  else if(listOfApiaries.filter(x => parseInt(x.number.substring(8,13)) === parseInt(Id) && x.date===apiary.date).length!=0) //zakladamy ze numery w danym dniu nie moga sie powtarzac
   {
     res.send({success:false,message:"Pasieka o takim numerze juz istnieje. Wybierz inny numer."});
   }
   else
   {
     res.send({success:true,message:"Pasieka dodana"});
-    listOfApiaries.push({name:pasieka.name,date:pasieka.date,number:generateNumber(Id,pasieka.date)});
+    listOfApiaries.push({name:apiary.name,date:apiary.date,number:generateNumber(Id,apiary.date)});
   } 
 });
 
@@ -99,11 +99,11 @@ function getApiariesInDateRange(from,to)
   var filtered=listOfApiaries;
   if(from!=="")
   {
-    filtered=filtered.filter(x => Date.parse(x.date)>=Date.parse(from));
+    filtered=filtered.filter(x => x.date>=from);
   }
   if(to!=="")
   {
-    filtered=filtered.filter(x => Date.parse(x.date)<=Date.parse(to));
+    filtered=filtered.filter(x => x.date<=to);
   }
   return filtered;
 }
