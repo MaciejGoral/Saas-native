@@ -5,12 +5,14 @@ import apiary from '../images/apiary.png';
 const Header = () => {
     return (
         <header className='Header'>
-            <img src={apiary} alt="Pasieka" className='logo'/>
+            <Link to="/">
+                <img src={apiary} alt="Pasieka" className='logo'/>
+            </Link>
             <Link className='text-link' to="/">
-            Dodaj pasiekę
+                Dodaj pasiekę
             </Link>
             <Link className='text-link' to="/list">
-            Lista pasiek
+                Lista pasiek
             </Link>
         </header>
     );

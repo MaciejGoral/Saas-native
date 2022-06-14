@@ -115,3 +115,8 @@ label {
     opacity: 0;
   }
 }
+
+
+input[type=date]:invalid::-webkit-datetime-edit {
+  color: #999!important;
+}
