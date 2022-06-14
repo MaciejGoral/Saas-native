@@ -19,4 +19,4 @@ npm install
 npm start
 ```
 # Live demo (Netlify + Heroku)
-https://sparkling-trifle-c502b0.netlify.app/list
+https://sparkling-trifle-c502b0.netlify.app
