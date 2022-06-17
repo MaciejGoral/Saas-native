@@ -1,5 +1,6 @@
 import './styling/Add.css';
 import React, { useState } from "react";
+import {API_URL} from '../index.js'
 
 function Add() {
     const [state, setState] = useState({name:'',date:'',number:''});
@@ -10,7 +11,7 @@ function Add() {
     setSuccess(false);
     setMessage('');
     e.preventDefault()
-    fetch('http://localhost:3000', {
+    fetch(API_URL, {
       method: 'POST',
       body: JSON.stringify({ state }),
       headers: { 'Content-Type': 'application/json' },

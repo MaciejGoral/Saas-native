@@ -7,6 +7,8 @@ import List from './components/List';
 import Header from './components/Header';
 import reportWebVitals from './reportWebVitals';
 
+export const API_URL="http://localhost:3000"
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>

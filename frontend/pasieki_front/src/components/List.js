@@ -1,27 +1,15 @@
 import './styling/List.css';
 import React, { useEffect, useState } from "react"
+import {API_URL} from '../index.js'
 
 function List() {
   const [listOfApiaries, setListOfApiaries] = useState([])
   const [dateRange, setDateRange] = useState({from: '', to: ''})
   const [sort, setSort] = useState("default");
 
-  const fetchData = () => {
-    fetch("http://localhost:3000/list")
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        setListOfApiaries(data)
-      })
-  }
 
   useEffect(() => {
-    fetchData()
-  }, [])
-
-  useEffect(() => {
-    fetch('http://localhost:3000/list', {
+    fetch(API_URL+"/list", {
       method: 'POST',
       body: JSON.stringify({ dateRange }),
       headers: { 'Content-Type': 'application/json' },
