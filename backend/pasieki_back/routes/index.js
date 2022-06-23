@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-var listOfApiaries=[  //przykładowe dane, numery nie są prawidłowe
+let listOfApiaries=[  //przykładowe dane, numery nie są prawidłowe
   {
     name:"BPasieka 1",
     date:"2019-01-03",
@@ -21,8 +21,8 @@ var listOfApiaries=[  //przykładowe dane, numery nie są prawidłowe
 
 function CalculateChecksum(number)
 {
-  var sum = BigInt(number);
-  for(var i = 0; i < number.length; i++)
+  let sum = BigInt(number);
+  for(let i = 0; i < number.length; i++)
   {
     if(parseInt(number[i])!=0)
     {
@@ -35,8 +35,8 @@ function CalculateChecksum(number)
 
 function getFirstFreeIdFromDate(date) //zwraca pierwsze wolne id w danym dniu lub 0 jesli nie ma
 {
-  var ids=[]
-  for(var i=0;i<listOfApiaries.length;i++)
+  let ids=[]
+  for(let i=0;i<listOfApiaries.length;i++)
   {
     if(listOfApiaries[i].date==date)
     {
@@ -45,7 +45,7 @@ function getFirstFreeIdFromDate(date) //zwraca pierwsze wolne id w danym dniu lu
   }
   free=1;
   ids.sort()
-  while(i<100000)
+  while(free<100000)
   {
     if(!ids.includes(free))
     {
@@ -64,8 +64,8 @@ function generateNumber(id,date)
   
 }
 router.post('/', function(req, res, next) {
-  var apiary=req.body.state;
-  var id=apiary.number;
+  let apiary=req.body.state;
+  let id=apiary.number;
   if(id=='')
   {
     id=getFirstFreeIdFromDate(apiary.date);
@@ -92,7 +92,7 @@ router.post('/', function(req, res, next) {
 
 function getApiariesInDateRange(from,to)
 {
-  var filtered=listOfApiaries;
+  let filtered=listOfApiaries;
   if(from!=="")
   {
     filtered=filtered.filter(x => x.date>=from);
